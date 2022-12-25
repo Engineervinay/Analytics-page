@@ -71,10 +71,12 @@ function App() {
   };
   return (
     <div className="App">
-      <h2>Analytics</h2>
-      <input type="date" onChange={(e) => handleStartDateUpdate(e)} value={startDateValue} id="startDate" name="startDate"></input>
+<div className="header"></div>
+     <div className="main"> <h2>Analytics</h2>
+     <div className="datebar">
+     <div className="daterange"> <input type="date" onChange={(e) => handleStartDateUpdate(e)} value={startDateValue} id="startDate" name="startDate"></input>
       <input type="date" id="endDate" name="endDate"onChange={(e) => handleEndDateUpdate(e)} value={endDateValue}></input>
-     <button name="settings" onClick={handleClick}>Settings</button>
+      </div> <button name="settings" onClick={handleClick}>Settings</button></div>
     {
       optionShown && (
         
@@ -96,7 +98,7 @@ function App() {
     }
    
      {  data && <Table tabledata={data} appNames={appNames} tableColumns={selectedColumns}/>  }
-      </div>
+      </div></div>
       
   );
 }
