@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Table(props) {
-
+    
     const tableColumnsDisplay = () => {
         return props.tableColumns.map((data, idx) => {
           return (        
@@ -21,13 +21,16 @@ function Table(props) {
             <tr data-id={idx} key={idx}>
               <td>{date}</td>
               <td>{app_name.app_name}</td>
-              <td>{clicks}</td>
               
-              <td>{requests}</td>
-              <td>{responses}</td>
+              {props.tableColumns.includes("clicks") && <td>{clicks}</td>}
               
-              <td>{impressions}</td>
-              <td>{revenue}</td>
+              {props.tableColumns.includes("requests") && (<td>{requests}</td>)}
+              {props.tableColumns.includes("responses") && (<td>{responses}</td>)}
+              {props.tableColumns.includes("impressions") && (<td>{impressions}</td>)}
+              {props.tableColumns.includes("revenue") && (<td>{revenue}</td>)}
+              {props.tableColumns.includes("Fill Rate") && (<td>{requests/responses *100}</td>)}
+              {props.tableColumns.includes("CTR") && (<td>{clicks/impressions *100}</td>)}
+               
             </tr>
           )
         });
