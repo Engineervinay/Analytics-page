@@ -11,16 +11,22 @@ function Table(props) {
       }
 
       const returnTableData = () => {
+        const apps=props.appNames.data;
         return props.tabledata.data.map((dataRow, idx) => {
           const { app_id, clicks, date,impressions,requests,responses,revenue } = dataRow;
+          
+          const app_name = apps.find(obj => obj.app_id === app_id);
+          //console.log(app_name);
           return (
-            <tr data-id={app_id} key={idx}>
-              <td>{app_id}</td>
-              <td>{clicks}</td>
+            <tr data-id={idx} key={idx}>
               <td>{date}</td>
-              <td>{impressions}</td>
+              <td>{app_name.app_name}</td>
+              <td>{clicks}</td>
+              
               <td>{requests}</td>
               <td>{responses}</td>
+              
+              <td>{impressions}</td>
               <td>{revenue}</td>
             </tr>
           )
