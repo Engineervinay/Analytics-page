@@ -9,7 +9,7 @@ function App() {
   const[appNames,setAppNames]=useState();
   const[optionShown,setOptionShown]=useState(false);
   const [checked, setChecked] = useState(["Date","App","clicks","requests","responses","impressions"]);
- 
+  const[ selectedColumns,setSelectedColumns]=useState(["Date","App","clicks","requests","responses","impressions"]);
   useEffect(() => {
     fetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
       .then(response => response.json())
@@ -33,12 +33,19 @@ function App() {
   function handleClick (e){
     setOptionShown(current=>!current);
   }
+  function handleClose(e){
+    handleClick();
+  }
   function handleStartDateUpdate(e) {
     const dateValue=e.target.value;
     console.log(dateValue);
     setstartDateValue(dateValue);
     console.log(data);
     getData();
+  }
+
+  function handleChanges(){
+    setSelectedColumns(checked);
   }
   
   function handleEndDateUpdate(e) {
@@ -81,12 +88,14 @@ function App() {
             </div>
           ))}
         </div>
+        <button id="close"name="close" onClick={handleClose}>Close</button>
+        <button id="save" onClick={handleChanges}>Apply Changes</button>
 
       </div>
       )
     }
    
-     {  data && <Table tabledata={data} appNames={appNames} tableColumns={checked}/>  }
+     {  data && <Table tabledata={data} appNames={appNames} tableColumns={selectedColumns}/>  }
       </div>
       
   );
