@@ -12,19 +12,30 @@ function App() {
       .then(response => response.json())
       .then(json => setData(json))
       
-  }, [startDateValue,endDateValue]);
-  
+  }, []);
+  function getData(){
+    if(endDateValue<startDateValue){
+      return;
+      
+    }
+    fetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
+      .then(response => response.json())
+      .then(json => setData(json))
+      
+  }
   function handleStartDateUpdate(e) {
     const dateValue=e.target.value;
     console.log(dateValue);
     setstartDateValue(dateValue);
     console.log(data);
+    getData();
   }
   
   function handleEndDateUpdate(e) {
     const dateValue=e.target.value;
     setendDateValue(dateValue);
     console.log(endDateValue);
+    getData();
   }
 
   return (
