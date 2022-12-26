@@ -36,3 +36,76 @@
   flex-direction: row;
   justify-content: space-between;
 }
+#setting-btn{
+  border:1px solid #EAEAEA;
+  padding: 0.5rem;
+  font-weight: bold;
+  
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+#settings{
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  text-align: left;
+}
+#settings .title{
+  align-self:left;
+  padding:0.5rem;
+  font-weight: bold;
+}
+#settings .list-container{
+  display:grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  padding:1rem;
+}
+.option-button {
+  margin:4px;
+  
+  border-radius:0px;
+  border:1px solid #EAEAEA;
+  overflow:auto;
+  float:left;
+}
+
+.option-button label {
+  float:left;
+  width:3.7em;
+}
+
+.option-button label span {
+  text-align:center;
+  padding:3px 0px;
+  display:block;
+}
+
+.option-button label input {
+  position:absolute;
+  top:-20px;
+}
+
+.option-button input:checked + span {
+  border-left:4px solid #136FED ;
+  
+}
+#save{
+  background: #136FED;
+  border:0px;
+  color: #FFFFFF;
+  padding:0.5rem;
+border-radius: 3px;
+margin-right:10px;
+}
+#close{
+  border:1px solid #EAEAEA;
+  padding: 0.5rem;
+  color: #136FED;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+}
+.settings-buttons{
+ padding-bottom: 0.5rem;
+  text-align: right;
+}

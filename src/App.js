@@ -76,7 +76,7 @@ function App() {
      <div className="datebar">
      <div className="daterange"> <input type="date" onChange={(e) => handleStartDateUpdate(e)} value={startDateValue} id="startDate" name="startDate"></input>
       <input type="date" id="endDate" name="endDate"onChange={(e) => handleEndDateUpdate(e)} value={endDateValue}></input>
-      </div> <button name="settings" onClick={handleClick}>Settings</button></div>
+      </div> <button name="settings" id="setting-btn"onClick={handleClick}>Settings</button></div>
     {
       optionShown && (
         
@@ -84,15 +84,16 @@ function App() {
           <div className="title">Dimensions and Metrics</div>
           <div className="list-container">
           {columnNames.map((item, index) => (
-            <div key={index}>
+            <div className="option-button" key={index}>
+              <label>
               <input value={item} type="checkbox" onChange={handleCheck} />
               <span className={isChecked(item)}>{item}</span>
-            </div>
+              </label> </div>
           ))}
         </div>
-        <button id="close"name="close" onClick={handleClose}>Close</button>
+        <div  className="settings-buttons"><button id="close"name="close" onClick={handleClose}>Close</button>
         <button id="save" onClick={handleChanges}>Apply Changes</button>
-
+</div>
       </div>
       )
     }
