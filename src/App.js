@@ -27,7 +27,7 @@ function App() {
       return;
       
     }
-    fetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
+    fetch(`https://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
       .then(response => response.json())
       .then(json => setData(json))
       
