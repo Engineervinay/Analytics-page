@@ -46,7 +46,7 @@ function App() {
     getData();
   }
 
-  function handleChanges(){
+  function handleChange(){
     setSelectedColumns(checked);
   }
   
@@ -94,7 +94,7 @@ function App() {
           ))}
         </div>
         <div  className="settings-buttons"><button id="close"name="close" onClick={handleClose}>Close</button>
-        <button id="save" onClick={handleChanges}>Apply Changes</button>
+        <button id="save" onClick={handleChange}>Apply Changes</button>
 </div>
       </div>
       )
