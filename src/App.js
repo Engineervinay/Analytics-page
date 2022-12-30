@@ -8,17 +8,19 @@ function App() {
   const [data,setData]=useState(null);
   const[appNames,setAppNames]=useState();
   const[optionShown,setOptionShown]=useState(false);
-  const [checked, setChecked] = useState(["Date","App","clicks","requests","responses","impressions"]);
-  const[ selectedColumns,setSelectedColumns]=useState(["Date","App","clicks","requests","responses","impressions"]);
+  const [checked, setChecked] = useState(["Date","App","clicks","requests","responses","impressions","revenue","Fill Rate","CTR"]);
+  const[ selectedColumns,setSelectedColumns]=useState(["Date","App","clicks","requests","responses","impressions","revenue","Fill Rate","CTR"]);
+  const[apiError,setApiError]=useState(false);
   useEffect(() => {
     fetch(`http://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
       .then(response => response.json())
       .then(json => setData(json))
-      
+      .catch( error => setApiError(true) )
+
       fetch(` http://go-dev.greedygame.com/v3/dummy/apps`)
       .then(response => response.json())
       .then(json => setAppNames(json))
-       
+       .catch(error=>setApiError(true))
   }, []);
   function getData(){
     if(endDateValue<startDateValue){
@@ -97,9 +99,14 @@ function App() {
       </div>
       )
     }
-   
-     {  data && <Table tabledata={data} appNames={appNames} tableColumns={selectedColumns}/>  }
-      </div></div>
+    {
+      (apiError===false || data!==undefined || appNames!==undefined)?(<Table tabledata={data} appNames={appNames} tableColumns={selectedColumns}/>):(<div>error</div>
+    )
+    } 
+      </div>
+      
+      
+      </div>
       
   );
 }

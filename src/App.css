@@ -1,5 +1,6 @@
+
 .App {
-  text-align: center;
+  
   display: flex;
   flex-direction: row;
   
@@ -8,10 +9,12 @@
 .header{
   background-color: #192F48;
   width:7%;
+  min-height: 100vh;
 }
 
 .main{
   width:100%;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -22,15 +25,29 @@
   font: normal normal bold  Lato;
   font-size: 24px;
 }
+.daterange{
 
+  border:1px solid #EAEAEA;
+  border-radius: 3px;
+height: fit-content;
+}
 #startDate{
-  width: 4rem;
+
+
+  width:4rem;
+  border: none;
+  color:#212121;
+  outline: none;
 }
 
 #endDate{
   width: 4rem;
-
+  
+  border: none;
+  color:#212121;
+  outline: none;
 }
+
 .datebar{
   display: flex;
   flex-direction: row;
@@ -89,6 +106,7 @@
   border-left:4px solid #136FED ;
   
 }
+
 #save{
   background: #136FED;
   border:0px;

@@ -1,0 +1,20 @@
+.table-heading{
+    color:#707070;
+}
+table{
+      border-collapse:collapse; 
+  
+}
+tr{
+    color:#1D1A1A;
+    border-bottom:1px solid #EAEAEA;
+   
+}
+td{
+    padding-top: 1rem;
+}
+.app-logo{
+    width:20%;
+    max-width: 18px;
+    margin-right: 2px;
+}
