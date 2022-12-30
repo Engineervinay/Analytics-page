@@ -4,12 +4,12 @@ import Table from './components/table';
 function App() {
   const [startDateValue, setstartDateValue] = useState('2021-06-01');
   const [endDateValue, setendDateValue] = useState('2021-06-30');
-  var columnNames=["Date","App","Clicks","Requests","Responses","Impressions","Revenue","Fill Rate","CTR"];
+  var columnNames=["Date","App","clicks","requests","responses","impressions","revenue","Fill Rate","CTR"];
   const [data,setData]=useState(null);
   const[appNames,setAppNames]=useState();
   const[optionShown,setOptionShown]=useState(false);
-  const [checked, setChecked] = useState(["Date","App","Clicks","Requests","Responses","Impressions","Revenue","Fill Rate","CTR"]);
-  const[ selectedColumns,setSelectedColumns]=useState(["Date","App","Clicks","Requests","Responses","Impressions","Revenue","Fill Rate","CTR"]);
+  const [checked, setChecked] = useState(["Date","App","clicks","requests","responses","impressions","revenue","Fill Rate","CTR"]);
+  const[ selectedColumns,setSelectedColumns]=useState(["Date","App","clicks","requests","responses","impressions","revenue","Fill Rate","CTR"]);
   const[apiError,setApiError]=useState(false);
   useEffect(() => {
     fetch(`https://go-dev.greedygame.com/v3/dummy/report?startDate=${startDateValue}&endDate=${endDateValue}`)
